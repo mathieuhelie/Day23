@@ -2,7 +2,7 @@
 
 https://docs.acquia.com/article/lesson-102-unit-testing
 
-While functional testing allows us to cover the dependencies between parts of the application, we sometimes only want to test whether our individual functions or methods work as they should. Unfortunately in the world of procedural programming, from which Drupal came, testing an individual function usually involves settings up a large array of fake global variables and data services that the function and every function it depends on require. This process must be repeated for each individual test, since we cannot trust one test not to contaminate another one.
+While functional testing allows us to cover the dependencies between parts of the application, we sometimes only want to test whether our individual functions or methods work as they should. Unfortunately in the world of procedural programming, from which Drupal came, testing an individual function usually involves setting up a large array of fake global variables and data services that the function and every function it depends on require. This process must be repeated for each individual test, since we cannot trust one test not to contaminate another one.
 
 Objects which are decoupled from global variables and services through dependency injection do not face this problem, since all their requirements are injected as properties in their constructors. The dependencies can then be "mocked" by replacing them with objects that have the same interface but fixed behaviors. Let's see how this works in practice.
 
