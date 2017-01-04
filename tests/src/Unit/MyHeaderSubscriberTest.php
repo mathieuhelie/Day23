@@ -19,7 +19,7 @@ class MyHeaderSubscriberTest extends \PHPUnit_Framework_TestCase {
    * @covers ::addHeader
    */
   public function testAddHeader() {
-    // HeaderSubscriberTest's constructor has a second-order dependency, so we need two stubs.
+    // MyHeaderSubscriber's constructor has a second-order dependency, so we need two stubs.
     $stubAnonymousUser = $this->prophesize(AccountInterface::class);
     $stubAnonymousUser
       ->isAnonymous()
@@ -27,7 +27,7 @@ class MyHeaderSubscriberTest extends \PHPUnit_Framework_TestCase {
     $stubCurrentUserService = $this->prophesize(AccountProxyInterface::class);
     $stubCurrentUserService
       ->getAccount()
-      ->willReturn($stubAnonymousUser->reveal()); // Transform the Prophecy into a stub object to prophesize
+      ->willReturn($stubAnonymousUser->reveal()); // Transform the Prophecy into a stub object to prophesize.
 
     // We can now construct our test object.
     $anonymousMyHeaderSubscriber = new MyHeaderSubscriber($stubCurrentUserService->reveal());
